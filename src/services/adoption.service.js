@@ -1,6 +1,6 @@
-const AdoptionModel = require('../models/adoptionModel');
-const PetModel = require('../models/petModel');
-const UserModel = require('../models/userModel');
+const AdoptionModel = require('../models/adoption.model');
+const PetModel = require('../models/pet.model');
+const UserModel = require('../models/user.model');
 
 class AdoptionService {
   static async getAllAdoptions() {

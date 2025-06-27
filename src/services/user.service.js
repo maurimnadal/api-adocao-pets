@@ -1,30 +1,26 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const UserModel = require('../models/userModel');
+const UserModel = require('../models/user.model');
 
 class UserService {
   // Registro de novo usuário (com role = adopter por padrão)
   static async registerUser(user) {
     const { name, email, password, phone, role } = user;
 
-    const existing = await UserModel.findByEmail(email);
+    const existing = await UserModel.getUserByEmail(email);
     if (existing) {
       throw new Error('Usuário já existe');
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = {
-      name,
-      email,
-      password: hashedPassword,
-      phone,
-      role: role || 'adopter',
+    user.password = hashedPassword;
+    user.role = role || 'adopter'; // padrão para 'adopter'
+
+    return {
+      message: 'Usuário registrado com sucesso',
+      user: await UserModel.addUser(user),
     };
-
-    const id = await UserModel.create(newUser);
-
-    return { message: 'Usuário registrado com sucesso', id };
   }
 
   // Login e geração de token JWT
@@ -60,7 +56,9 @@ class UserService {
   // Listar todos os usuários (admin apenas)
   static async getAllUsers(requestingUser) {
     if (requestingUser.role !== 'admin') {
-      throw new Error('Apenas administradores podem visualizar todos os usuários.');
+      throw new Error(
+        'Apenas administradores podem visualizar todos os usuários.'
+      );
     }
 
     return await UserModel.getAllUsers();

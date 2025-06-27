@@ -1,5 +1,5 @@
-const PetModel = require('../models/petModel');
-const UserModel = require('../models/userModel');
+const PetModel = require('../models/pet.model');
+const UserModel = require('../models/user.model');
 
 class PetService {
   static async getAllPets() {
@@ -23,7 +23,14 @@ class PetService {
     }
 
     const status = 'available'; // padrão
-    return await PetModel.addPet({ name, age, species, size, status, description });
+    return await PetModel.addPet({
+      name,
+      age,
+      species,
+      size,
+      status,
+      description,
+    });
   }
 
   static async updatePet(userId, petId, updateData) {
@@ -38,10 +45,7 @@ class PetService {
       throw new Error('Pets adotados não podem ser editados.');
     }
 
-    await PetModel.updatePet(petId, {
-      ...pet,
-      ...updateData, // substitui os campos atualizados
-    });
+    await PetModel.updatePet(petId, updateData);
 
     return { message: 'Pet atualizado com sucesso.' };
   }
@@ -60,7 +64,9 @@ class PetService {
 
     const affectedRows = await PetModel.deletePet(petId);
     if (affectedRows === 0) {
-      throw new Error('Falha ao remover pet. Verifique se ele está disponível.');
+      throw new Error(
+        'Falha ao remover pet. Verifique se ele está disponível.'
+      );
     }
 
     return { message: 'Pet removido com sucesso.' };
