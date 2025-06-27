@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/user.controller');
-const authenticateToken = require('../middlewares/authenticateToken');
-const isAdmin = require('../middlewares/isAdmin');
+const authenticateToken = require('../middlewares/auth.middleware');
+const isAdmin = require('../middlewares/isAdmin.middleware');
 
 // Rota pública
 router.post('/', UserController.registerUser);

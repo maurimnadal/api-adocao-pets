@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 
-const authRoutes = require('../routes/auth.routes');
-const userRoutes = require('../routes/user.routes');
-const petRoutes = require('../routes/pet.routes');
-const adoptionRoutes = require('../routes/adoption.routes');
+const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
+const petRoutes = require('./routes/pet.routes');
+const adoptionRoutes = require('./routes/adoption.routes');
 
 const app = express();
 

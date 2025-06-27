@@ -13,11 +13,11 @@ class AdoptionController {
 
 
   static async adoptPet(req, res) {
-    const { petId } = req.params;
+    const { id } = req.params;
     const userId = req.user.id; // ID do usuário autenticado
 
     try {
-      const adoption = await AdoptionService.adoptPet(userId, petId);
+      const adoption = await AdoptionService.adoptPet(userId, id);
       res.status(201).json(adoption);
     } catch (error) {
       res.status(400).json({ error: error.message });

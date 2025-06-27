@@ -56,12 +56,12 @@ class PetController {
   }
 
   static async updatePet(req, res) {
-    const { petId } = req.params;
+    const { id } = req.params;
     const userId = req.user.id;
     const { name, age, species, size, description } = req.body;
 
     try {
-      const updated = await PetService.updatePet(userId, petId, {
+      const updated = await PetService.updatePet(userId, id, {
         name,
         age,
         species,
@@ -75,11 +75,11 @@ class PetController {
   }
 
   static async deletePet(req, res) {
-    const { petId } = req.params;
+    const { id } = req.params;
     const userId = req.user.id;
 
     try {
-      const deleted = await PetService.deletePet(userId, petId);
+      const deleted = await PetService.deletePet(userId, id);
       res.status(200).json(deleted);
     } catch (error) {
       res.status(400).json({ error: error.message });

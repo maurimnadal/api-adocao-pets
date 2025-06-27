@@ -1,0 +1,151 @@
+### Registrar novo usuário (adopter padrão)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "João Silva2",
+  "email": "joao@example2.com",
+  "password": "senha123",
+  "phone": "11999999999"
+}
+
+###
+
+### Registrar novo usuário (admin)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Maria Admin",
+  "email": "maria@email.com",
+  "password": "senha123",
+  "phone": "11999999999",
+  "role": "admin"
+}
+
+###
+
+### Login usuário adopter
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "joao@example.com",
+  "password": "novaSenha123a"
+}
+
+###
+
+### Login usuário admin
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "maria@email.com",
+  "password": "senha123"
+}
+
+###
+
+### Definir token manualmente para testes
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2FvQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkb3B0ZXIiLCJpYXQiOjE3NTEwNTc5NTMsImV4cCI6MTc1MTA2MTU1M30.ua1UvqjJKQlHmRskxDcJJNl__BmeKdanC4YHQ4QN5FM
+# Authorization: Bearer {{token}}
+
+###
+
+### 🐾 Listar pets disponíveis (rota pública)
+GET http://localhost:3000/pets/available
+
+###
+
+### 🐾 Listar todos os pets (admin)
+GET http://localhost:3000/pets
+Authorization: Bearer {{token}}
+
+###
+
+### 🐾 Obter pet por ID (admin)
+GET http://localhost:3000/pets/1
+Authorization: Bearer {{token}}
+
+###
+
+### 🐾 Criar novo pet (admin)
+POST http://localhost:3000/pets
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Rex",
+  "age": 5,
+  "species": "dog",
+  "size": "medium",
+  "description": "Cachorro amigável e brincalhão"
+}
+
+###
+
+### 🐾 Atualizar pet (admin)
+PUT http://localhost:3000/pets/5
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Rex Atualizado",
+  "age": 6,
+  "species": "dog",
+  "size": "large",
+  "description": "Atualização do Rex"
+}
+
+###
+
+### 🐾 Deletar pet (admin)
+DELETE http://localhost:3000/pets/4
+Authorization: Bearer {{token}}
+
+###
+
+### 🏠 Adotar pet (adopter)
+POST http://localhost:3000/adoptions/5
+Authorization: Bearer {{token}}
+
+###
+
+### 🏠 Listar todas as adoções (admin)
+GET http://localhost:3000/adoptions
+Authorization: Bearer {{token}}
+
+###
+
+### 👤 Listar todos os usuários (admin)
+GET http://localhost:3000/users
+Authorization: Bearer {{token}}
+
+###
+
+### 👤 Obter usuário por ID (admin ou o próprio)
+GET http://localhost:3000/users/3
+Authorization: Bearer {{token}}
+
+###
+
+### 👤 Atualizar usuário (admin ou o próprio)
+PUT http://localhost:3000/users/3
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "João",
+  "email": "joao@example.com",
+  "password": "novaSenha123a",
+  "phone": "11988888888"
+}
+
+###
+
+### 👤 Deletar usuário (apenas admin)
+DELETE http://localhost:3000/users/5
+Authorization: Bearer {{token}}
+
+###

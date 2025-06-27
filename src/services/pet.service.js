@@ -33,22 +33,30 @@ class PetService {
     });
   }
 
-  static async updatePet(userId, petId, updateData) {
-    const user = await UserModel.getUserById(userId);
-    if (!user || user.role !== 'admin') {
-      throw new Error('Apenas administradores podem editar pets.');
-    }
-
-    const pet = await PetModel.getPetById(petId);
-    if (!pet) throw new Error('Pet não encontrado.');
-    if (pet.status === 'adopted') {
-      throw new Error('Pets adotados não podem ser editados.');
-    }
-
-    await PetModel.updatePet(petId, updateData);
-
-    return { message: 'Pet atualizado com sucesso.' };
+static async updatePet(userId, petId, updateData) {
+  const user = await UserModel.getUserById(userId);
+  if (!user || user.role !== 'admin') {
+    throw new Error('Apenas administradores podem editar pets.');
   }
+
+  const pet = await PetModel.getPetById(petId);
+  if (!pet) throw new Error('Pet não encontrado.');
+  if (pet.status === 'adopted') {
+    throw new Error('Pets adotados não podem ser editados.');
+  }
+
+  const affectedRows = await PetModel.updatePet(petId, updateData);
+
+  if (affectedRows === 0) {
+    throw new Error('Pet não foi atualizado. Verifique os dados enviados.');
+  }
+
+  const updatedPet = await PetModel.getPetById(petId);
+    return {
+    message: 'Usuário atualizado com sucesso',
+    affectedRows,
+  };
+}
 
   static async deletePet(userId, petId) {
     const user = await UserModel.getUserById(userId);
@@ -69,7 +77,7 @@ class PetService {
       );
     }
 
-    return { message: 'Pet removido com sucesso.' };
+    return { message: 'Pet removido com sucesso.', affectedRows: affectedRows};
   }
 }
 

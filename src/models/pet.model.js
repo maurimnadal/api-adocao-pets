@@ -7,7 +7,9 @@ class PetModel {
   }
 
   static async getAvailablePets() {
-    const [rows] = await db.query('SELECT * FROM pets WHERE status = "available"');
+    const [rows] = await db.query(
+      'SELECT * FROM pets WHERE status = "available"'
+    );
     return rows;
   }
 
@@ -32,16 +34,27 @@ class PetModel {
     };
   }
 
-  static async updatePet(id, { name, age, species, size, status, description }) {
+  static async updatePet(id, { name, age, species, size, description }) {
     const [result] = await db.query(
-      `UPDATE pets SET name = ?, age = ?, species = ?, size = ?, status = ?, description = ? WHERE id = ?`,
-      [name, age, species, size, status, description, id]
+      `UPDATE pets SET name = ?, age = ?, species = ?, size = ?, description = ? WHERE id = ?`,
+      [name, age, species, size, description, id]
     );
+    return result.affectedRows;
+  }
+  
+  static async updatePetStatus(id, status) {
+    const [result] = await db.query(`UPDATE pets SET status = ? WHERE id = ?`, [
+      status,
+      id,
+    ]);
     return result.affectedRows;
   }
 
   static async deletePet(id) {
-    const [result] = await db.query('DELETE FROM pets WHERE id = ? AND status = "available"', [id]);
+    const [result] = await db.query(
+      'DELETE FROM pets WHERE id = ? AND status = "available"',
+      [id]
+    );
     return result.affectedRows;
   }
 }
