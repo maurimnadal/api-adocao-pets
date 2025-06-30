@@ -6,7 +6,7 @@ class AuthController {
 
     try {
       const result = await UserService.loginUser({ email, password });
-      res.status(200).json(result); 
+      res.status(200).json(result);
     } catch (error) {
       res.status(400).json({ error: error.message });
     }

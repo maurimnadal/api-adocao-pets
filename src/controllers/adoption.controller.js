@@ -1,7 +1,6 @@
 const AdoptionService = require('../services/adoption.service');
 
 class AdoptionController {
-
   static async getAllAdoptions(req, res) {
     try {
       const adoptions = await AdoptionService.getAllAdoptions();
@@ -11,10 +10,9 @@ class AdoptionController {
     }
   }
 
-
   static async adoptPet(req, res) {
     const { id } = req.params;
-    const userId = req.user.id; // ID do usuário autenticado
+    const userId = req.user.id; 
 
     try {
       const adoption = await AdoptionService.adoptPet(userId, id);

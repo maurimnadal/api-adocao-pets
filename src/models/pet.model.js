@@ -41,7 +41,7 @@ class PetModel {
     );
     return result.affectedRows;
   }
-  
+
   static async updatePetStatus(id, status) {
     const [result] = await db.query(`UPDATE pets SET status = ? WHERE id = ?`, [
       status,

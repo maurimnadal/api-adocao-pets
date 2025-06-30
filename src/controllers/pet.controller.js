@@ -39,7 +39,7 @@ class PetController {
 
   static async createPet(req, res) {
     const { name, age, species, size, description } = req.body;
-    const userId = req.user.id; // capturado do middleware JWT
+    const userId = req.user.id;
 
     try {
       const newPet = await PetService.addPet(userId, {

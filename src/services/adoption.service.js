@@ -10,12 +10,12 @@ class AdoptionService {
   static async adoptPet(userId, id) {
     const user = await UserModel.getUserById(userId);
     if (!user) throw new Error('Usuário não encontrado.');
-    if (user.role !== 'adopter'){
+    if (user.role !== 'adopter') {
       throw new Error('Apenas adotantes podem adotar pets.');
     }
     const pet = await PetModel.getPetById(id);
     if (!pet) throw new Error('Pet não encontrado.');
-    if (pet.status !== 'available'){
+    if (pet.status !== 'available') {
       throw new Error('Pet não está disponível para adoção.');
     }
     const adoptions = await AdoptionModel.getAllAdoptions();
@@ -25,8 +25,8 @@ class AdoptionService {
     if (alreadyAdopted) throw new Error('Você já adotou este pet.');
 
     const adoption = await AdoptionModel.addAdoption({
-      user_id: userId,
-      pet_id: id,
+      user_id: parseInt(userId),
+      pet_id: parseInt(id),
     });
     await PetModel.updatePetStatus(id, 'adopted');
 

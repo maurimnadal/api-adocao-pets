@@ -48,7 +48,7 @@ Content-Type: application/json
 ###
 
 ### Definir token manualmente para testes
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2FvQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkb3B0ZXIiLCJpYXQiOjE3NTEwNTc5NTMsImV4cCI6MTc1MTA2MTU1M30.ua1UvqjJKQlHmRskxDcJJNl__BmeKdanC4YHQ4QN5FM
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2FvQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkb3B0ZXIiLCJpYXQiOjE3NTEzMTEwNDIsImV4cCI6MTc1MTMxNDY0Mn0.Z497NyAMuEJI69Nk3h0fa-DtMVC_9N5X9SPJEDhAwlQ
 
 ### 👤 Listar todos os usuários (admin)
 GET http://localhost:3000/users
@@ -77,7 +77,7 @@ Content-Type: application/json
 ###
 
 ### 👤 Deletar usuário (apenas admin)
-DELETE http://localhost:3000/users/5
+DELETE http://localhost:3000/users/6
 Authorization: Bearer {{token}}
 
 ###

@@ -6,7 +6,6 @@ import prettier from 'eslint-config-prettier'
 export default defineConfig([
     // Regras recomendadas do ESLint
     js.configs.recommended,
-    // Regras personalizadas + integração com Prettier
     {
         files: ['**/*.{js,cjs,mjs}'],
         languageOptions: {
@@ -25,6 +24,5 @@ export default defineConfig([
             'prettier/prettier': 'error', // Mostra erros de formatação do Prettier como erros do ESLint
         },
     },
-    // Desativa regras do ESLint que conflitam com o Prettier
     prettier,
 ])

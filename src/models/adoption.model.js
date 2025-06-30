@@ -14,7 +14,6 @@ class AdoptionModel {
     return rows;
   }
 
-
   static async addAdoption({ user_id, pet_id }) {
     const [result] = await db.query(
       `
@@ -24,9 +23,13 @@ class AdoptionModel {
       `,
       [user_id, pet_id]
     );
-    return { id: result.insertId, user_id, pet_id };
+    return {
+      message: 'Adoção realizada com sucesso!',
+      adoption_id: result.insertId,
+      user_id: parseInt(user_id),
+      pet_id: parseInt(pet_id),
+    };
   }
-
 }
 
 module.exports = AdoptionModel;

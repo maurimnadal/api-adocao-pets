@@ -3,8 +3,8 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "João Silva2",
-  "email": "joao@example2.com",
+  "name": "João Silva",
+  "email": "joao@example3.com",
   "password": "senha123",
   "phone": "11999999999"
 }
@@ -48,14 +48,14 @@ Content-Type: application/json
 ###
 
 ### Definir token manualmente para testes
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2FvQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkb3B0ZXIiLCJpYXQiOjE3NTEwNTc5NTMsImV4cCI6MTc1MTA2MTU1M30.ua1UvqjJKQlHmRskxDcJJNl__BmeKdanC4YHQ4QN5FM
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTEzMTA2ODUsImV4cCI6MTc1MTMxNDI4NX0.e2FXfXWH-gzDZPY_3NxfG70zwFmDQPhSRzbmaYp6EI8
 
 ### 🐾 Listar pets disponíveis (rota pública)
 GET http://localhost:3000/pets/available
 
 
 ### 🏠 Adotar pet (adopter)
-POST http://localhost:3000/adoptions/5
+POST http://localhost:3000/adoptions/7
 Authorization: Bearer {{token}}
 
 ###
