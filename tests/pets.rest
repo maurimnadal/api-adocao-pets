@@ -62,7 +62,7 @@ Authorization: Bearer {{token}}
 ###
 
 ### 🐾 Obter pet por ID (admin)
-GET http://localhost:3000/pets/1
+GET http://localhost:3000/pets/11
 Authorization: Bearer {{token}}
 
 ###
@@ -83,7 +83,7 @@ Content-Type: application/json
 ###
 
 ### 🐾 Atualizar pet (admin)
-PUT http://localhost:3000/pets/8
+PUT http://localhost:3000/pets/11
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -98,5 +98,5 @@ Content-Type: application/json
 ###
 
 ### 🐾 Deletar pet (admin)
-DELETE http://localhost:3000/pets/10
+DELETE http://localhost:3000/pets/11
 Authorization: Bearer {{token}}

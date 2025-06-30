@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "name": "João Silva2",
-  "email": "joao@example2.com",
+  "email": "joao@example3.com",
   "password": "senha123",
   "phone": "11999999999"
 }
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
   "name": "Maria Admin",
-  "email": "maria@email.com",
+  "email": "maria@email3.com",
   "password": "senha123",
   "phone": "11999999999",
   "role": "admin"
@@ -68,7 +68,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "João Silva",
+  "name": "João Silva 3",
   "email": "joao@example.com",
   "password": "novaSenha123a",
   "phone": "11988888888"
@@ -77,7 +77,7 @@ Content-Type: application/json
 ###
 
 ### 👤 Deletar usuário (apenas admin)
-DELETE http://localhost:3000/users/8
+DELETE http://localhost:3000/users/10
 Authorization: Bearer {{token}}
 
 ###
