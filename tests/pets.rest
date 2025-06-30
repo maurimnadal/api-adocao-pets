@@ -49,9 +49,6 @@ Content-Type: application/json
 
 ### Definir token manualmente para testes
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2FvQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkb3B0ZXIiLCJpYXQiOjE3NTEwNTc5NTMsImV4cCI6MTc1MTA2MTU1M30.ua1UvqjJKQlHmRskxDcJJNl__BmeKdanC4YHQ4QN5FM
-# Authorization: Bearer {{token}}
-
-###
 
 ### 🐾 Listar pets disponíveis (rota pública)
 GET http://localhost:3000/pets/available
@@ -103,49 +100,3 @@ Content-Type: application/json
 ### 🐾 Deletar pet (admin)
 DELETE http://localhost:3000/pets/4
 Authorization: Bearer {{token}}
-
-###
-
-### 🏠 Adotar pet (adopter)
-POST http://localhost:3000/adoptions/5
-Authorization: Bearer {{token}}
-
-###
-
-### 🏠 Listar todas as adoções (admin)
-GET http://localhost:3000/adoptions
-Authorization: Bearer {{token}}
-
-###
-
-### 👤 Listar todos os usuários (admin)
-GET http://localhost:3000/users
-Authorization: Bearer {{token}}
-
-###
-
-### 👤 Obter usuário por ID (admin ou o próprio)
-GET http://localhost:3000/users/3
-Authorization: Bearer {{token}}
-
-###
-
-### 👤 Atualizar usuário (admin ou o próprio)
-PUT http://localhost:3000/users/3
-Authorization: Bearer {{token}}
-Content-Type: application/json
-
-{
-  "name": "João",
-  "email": "joao@example.com",
-  "password": "novaSenha123a",
-  "phone": "11988888888"
-}
-
-###
-
-### 👤 Deletar usuário (apenas admin)
-DELETE http://localhost:3000/users/5
-Authorization: Bearer {{token}}
-
-###
