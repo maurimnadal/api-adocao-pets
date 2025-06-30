@@ -48,14 +48,14 @@ Content-Type: application/json
 ###
 
 ### Definir token manualmente para testes
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTEzMTA2ODUsImV4cCI6MTc1MTMxNDI4NX0.e2FXfXWH-gzDZPY_3NxfG70zwFmDQPhSRzbmaYp6EI8
+@token = 
 
 ### 🐾 Listar pets disponíveis (rota pública)
 GET http://localhost:3000/pets/available
 
 
 ### 🏠 Adotar pet (adopter)
-POST http://localhost:3000/adoptions/7
+POST http://localhost:3000/adoptions/9
 Authorization: Bearer {{token}}
 
 ###

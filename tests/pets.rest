@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
   "name": "Maria Admin",
-  "email": "maria@email.com",
+  "email": "maria@email2.com",
   "password": "senha123",
   "phone": "11999999999",
   "role": "admin"
@@ -48,7 +48,7 @@ Content-Type: application/json
 ###
 
 ### Definir token manualmente para testes
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtYXJpYUBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTEzMDk4MDIsImV4cCI6MTc1MTMxMzQwMn0.RX8P12FqZrUHuSgHEOKLFc2svdERMr8q_Ucgx1Jjzxs
+@token = 
 
 ### 🐾 Listar pets disponíveis (rota pública)
 GET http://localhost:3000/pets/available
@@ -73,7 +73,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Rexa",
+  "name": "Rex",
   "age": 5,
   "species": "dog",
   "size": "medium",
@@ -83,12 +83,12 @@ Content-Type: application/json
 ###
 
 ### 🐾 Atualizar pet (admin)
-PUT http://localhost:3000/pets/6
+PUT http://localhost:3000/pets/8
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Rexa Atualizado",
+  "name": "Rex Atualizado",
   "age": 6,
   "species": "dog",
   "size": "large",
@@ -98,5 +98,5 @@ Content-Type: application/json
 ###
 
 ### 🐾 Deletar pet (admin)
-DELETE http://localhost:3000/pets/2
+DELETE http://localhost:3000/pets/10
 Authorization: Bearer {{token}}

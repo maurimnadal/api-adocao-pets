@@ -12,7 +12,7 @@ class AdoptionController {
 
   static async adoptPet(req, res) {
     const { id } = req.params;
-    const userId = req.user.id; 
+    const userId = req.user.id;
 
     try {
       const adoption = await AdoptionService.adoptPet(userId, id);

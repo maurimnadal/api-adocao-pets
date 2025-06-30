@@ -2,17 +2,24 @@ const db = require('../config/database');
 
 class UserModel {
   static async getAllUsers() {
-    const [rows] = await db.query('SELECT id, name, email, phone, role FROM users');
+    const [rows] = await db.query(
+      'SELECT id, name, email, phone, role FROM users'
+    );
     return rows;
   }
 
   static async getUserById(id) {
-    const [rows] = await db.query('SELECT id, name, email, phone, role FROM users WHERE id = ?', [id]);
+    const [rows] = await db.query(
+      'SELECT id, name, email, phone, role FROM users WHERE id = ?',
+      [id]
+    );
     return rows[0];
   }
 
   static async getUserByEmail(email) {
-    const [rows] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
+    const [rows] = await db.query('SELECT * FROM users WHERE email = ?', [
+      email,
+    ]);
     return rows[0];
   }
 

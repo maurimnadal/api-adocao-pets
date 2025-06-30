@@ -28,7 +28,7 @@ class UserController {
     }
   }
   static async getAllUsers(req, res) {
-    const requestingUser = req.user; 
+    const requestingUser = req.user;
 
     try {
       const users = await UserService.getAllUsers(requestingUser);
@@ -51,7 +51,7 @@ class UserController {
   static async updateUser(req, res) {
     const { id } = req.params;
     const { name, email, password, phone, role } = req.body;
-    const requestingUser = req.user; 
+    const requestingUser = req.user;
 
     try {
       const updatedUser = await UserService.updateUser(requestingUser, id, {
@@ -68,7 +68,7 @@ class UserController {
   }
   static async deleteUser(req, res) {
     const { id } = req.params;
-    const requestingUser = req.user; 
+    const requestingUser = req.user;
 
     try {
       const result = await UserService.deleteUser(requestingUser, id);
